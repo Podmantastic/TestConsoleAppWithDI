@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="TestConsoleAppWithDI/TestConsoleAppWithDI.csproj" />
+  <Project Path="TestConsoleAppWithDITest/TestConsoleAppWithDITest.csproj" />
+</Solution>
