@@ -24,4 +24,23 @@ This is the test project for the console application. It includes:
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/Podmantastic/TestConsoleAppWithDI
+2. Open the solution in Visual Studio or your preferred IDE.
+3. Build the solution:
+   ```bash
+   dotnet build
+4. Run the application:
+   ```bash
+   dotnet run --project TestConsoleAppWithDI
+5. Run the tests:
+   ```bash
+   dotnet test
+## Requirements
+.NET SDK 9.0 or later
+NUnit for testing
+
+## Contributing
+Feel free to fork this repository and submit pull requests to add new features or improve the existing code.
+
+## License
+This project is licensed under the MIT License. ```
