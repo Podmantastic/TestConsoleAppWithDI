@@ -4,12 +4,13 @@ public class ConsoleAppEntryPoint : IConsoleAppEntryPoint
 {
     public void Do()
     {
-        List<string> order = [
-            new("Laptop"),
-            new("Mouse"),
-            new("Keyboard")];
+        int[] input = [-1, -2, -3];
 
-        Console.WriteLine("Hello from ConsoleAppEntryPoint!");
+        int result = solution(input);
+
+        // print input and result to the console
+        Console.WriteLine("Input: " + string.Join(", ", input));
+        Console.WriteLine("Result: " + result);
     }
 
     public int solution(int[] A)
@@ -22,7 +23,6 @@ public class ConsoleAppEntryPoint : IConsoleAppEntryPoint
                 Console.WriteLine("Number out of range: " + num);
                 return -1;
             }
-            Console.WriteLine(num);
         }
 
         // read only positive numbers into a SortedSet
