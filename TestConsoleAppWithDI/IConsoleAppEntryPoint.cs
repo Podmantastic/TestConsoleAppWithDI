@@ -3,5 +3,7 @@ namespace TestConsoleAppWithDI;
 public interface IConsoleAppEntryPoint
 {
     void Do();
-    int solution(int[] A);
+    int FindLargestMissingPositiveInteger(int[] A);
+
+    int solution(int N);
 }
