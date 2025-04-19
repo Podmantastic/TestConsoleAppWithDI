@@ -5,5 +5,7 @@ public interface IConsoleAppEntryPoint
     void Do();
     int FindLargestMissingPositiveInteger(int[] A);
 
-    int solution(int N);
+    int FindBinaryGap(int N);
+
+    int FindPositionInArray(int[] A, int X);
 }

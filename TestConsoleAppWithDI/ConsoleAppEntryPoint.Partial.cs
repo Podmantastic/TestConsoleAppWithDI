@@ -51,7 +51,7 @@ public partial class ConsoleAppEntryPoint
     // The binary representation of 529 is 1000010001, which has a binary gap of 4.
     // The binary representation of 20 is 10100, which has a binary gap of 1.
     // The binary representation of 15 is 1111, which has a binary gap of 0.
-    public int solution(int N)
+    public int FindBinaryGap(int N)
     {
         int maxGap = 0;
         int currentGap = 0;
