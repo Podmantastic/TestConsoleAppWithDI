@@ -309,4 +309,14 @@ public partial class ConsoleAppEntryPoint
             Console.WriteLine("Cannot rotate null or empty matrix.");
         }
     }
+
+    public static void ArrayLength()
+    {
+        int[] arr = new int[5];
+        Console.WriteLine("Length of the array: " + arr.Length);
+
+        int[,] myArray = new int[,] { { 1, 2, 3 }, { 4, 5, 6 } };
+        Console.WriteLine("Length of the 2D array: rows: " + myArray.GetLength(0) + " columns: " + myArray.GetLength(1));
+        Console.WriteLine("Length of the 2D array: " + myArray.Length);
+    }
 }
