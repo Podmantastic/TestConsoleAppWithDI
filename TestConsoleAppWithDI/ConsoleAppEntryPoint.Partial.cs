@@ -182,7 +182,8 @@ public partial class ConsoleAppEntryPoint
         // Check for null or empty input
         if (matrix == null || matrix.GetLength(0) == 0 || matrix.GetLength(1) == 0)
         {
-            return null; // Or throw an exception if you prefer:  throw new ArgumentException("Input matrix cannot be null or empty.");
+            throw new ArgumentException("Input matrix cannot be null or empty.");
+            //return null; // Or throw an exception if you prefer:  throw new ArgumentException("Input matrix cannot be null or empty.");
         }
 
         int rows = matrix.GetLength(0);
@@ -210,7 +211,7 @@ public partial class ConsoleAppEntryPoint
     /// Prints a 2D integer array to the console for easy visualization.
     /// </summary>
     /// <param name="matrix">The 2D integer array to print.</param>
-    public static void PrintMatrix(int[,] matrix)
+    public static void PrintMatrix(int[,]? matrix)
     {
         if (matrix == null)
         {
@@ -295,12 +296,13 @@ public partial class ConsoleAppEntryPoint
         }
 
         // Example with a null matrix
-        int[,] nullMatrix = null;
+        int[,]? nullMatrix = null;
         Console.WriteLine("\nNull Matrix:");
         PrintMatrix(nullMatrix);
-        int[,] rotatedNullMatrix = RotateRight(nullMatrix);
-        if (rotatedNullMatrix != null)
+        int[,]? rotatedNullMatrix = null;
+        if (nullMatrix != null)
         {
+            rotatedNullMatrix = RotateRight(nullMatrix);
             Console.WriteLine("Rotated Null Matrix:");
             PrintMatrix(rotatedNullMatrix);
         }
