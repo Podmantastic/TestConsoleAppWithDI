@@ -1,6 +1,6 @@
 # TestConsoleAppWithDI
 
-This solution serves as a base for exploring and testing new features of C# .NET 9, with a focus on Dependency Injection (DI) and unit testing using NUnit.
+This solution serves as a base for exploring and testing new features of C# and .NET, it used Ninject for DI and unit testing using NUnit.
 
 ## Project Structure
 
