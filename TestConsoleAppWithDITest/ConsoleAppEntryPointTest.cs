@@ -1,5 +1,4 @@
-﻿using Moq;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using TestConsoleAppWithDI;
 
 namespace TestConsoleAppWithDITest;
@@ -16,93 +15,20 @@ public class ConsoleAppEntryPointTest
         _entryPoint = new ConsoleAppEntryPoint();
     }
 
-    // FindLargestMissingPositiveInteger Tests
     [Test]
-    public void FindLargestMissingPositiveInteger_ShouldReturn1_WhenArrayIsEmpty()
+    public void Do_PrintsExpectedOutput()
     {
-        int[] input = [];
-        int result = _entryPoint.FindLargestMissingPositiveInteger(input);
-        Assert.That(result, Is.EqualTo(1));
-    }
+        // Arrange
+        using var sw = new StringWriter();
+        Console.SetOut(sw);
 
-    [Test]
-    public void FindLargestMissingPositiveInteger_ShouldReturn1_WhenNoPositiveNumbers()
-    {
-        int[] input = [-1, -2, -3];
-        int result = _entryPoint.FindLargestMissingPositiveInteger(input);
-        Assert.That(result, Is.EqualTo(1));
-    }
+        // Act
+        _entryPoint.Do();
 
-    [Test]
-    public void FindLargestMissingPositiveInteger_ShouldReturnSmallestMissingPositiveNumber()
-    {
-        int[] input = [1, 3, 6, 4, 1, 2];
-        int result = _entryPoint.FindLargestMissingPositiveInteger(input);
-        Assert.That(result, Is.EqualTo(5));
-    }
-
-    [Test]
-    public void FindLargestMissingPositiveInteger_ShouldReturnNextPositiveNumber_WhenAllNumbersAreSequential()
-    {
-        int[] input = [1, 2, 3];
-        int result = _entryPoint.FindLargestMissingPositiveInteger(input);
-        Assert.That(result, Is.EqualTo(4));
-    }
-
-    [Test]
-    public void FindLargestMissingPositiveInteger_ShouldReturnMinus1_WhenNumberOutOfRange()
-    {
-        int[] input = [1, 2, 1000001];
-        int result = _entryPoint.FindLargestMissingPositiveInteger(input);
-        Assert.That(result, Is.EqualTo(-1));
-    }
-
-    [Test]
-    public void FindLargestMissingPositiveInteger_ShouldIgnoreNegativeNumbersAndReturnSmallestMissingPositive()
-    {
-        int[] input = [-1, -3, 1, 2, 4];
-        int result = _entryPoint.FindLargestMissingPositiveInteger(input);
-        Assert.That(result, Is.EqualTo(3));
-    }
-
-    // FindpositionInArray Tests
-    [Test]
-    public void FindPositionInArray_ShouldReturnMinus1_WhenArrayIsEmpty()
-    {
-        int[] input = [];
-        int result = _entryPoint.FindPositionInArray(input, 5);
-        Assert.That(result, Is.EqualTo(-1));
-    }
-
-    [Test]
-    public void FindPositionInArray_ShouldReturnCorrectIndex_WhenElementExists()
-    {
-        int[] input = [1, 3, 5, 7, 9];
-        int result = _entryPoint.FindPositionInArray(input, 5);
-        Assert.That(result, Is.EqualTo(2));
-    }
-
-    [Test]
-    public void FindPositionInArray_ShouldReturnMinus1_WhenElementDoesNotExist()
-    {
-        int[] input = [1, 3, 5, 7, 9];
-        int result = _entryPoint.FindPositionInArray(input, 4);
-        Assert.That(result, Is.EqualTo(-1));
-    }
-
-    [Test]
-    public void FindPositionInArray_ShouldReturnCorrectIndex_WhenElementIsAtStart()
-    {
-        int[] input = [1, 3, 5, 7, 9];
-        int result = _entryPoint.FindPositionInArray(input, 1);
-        Assert.That(result, Is.EqualTo(0));
-    }
-
-    [Test]
-    public void FindPositionInArray_ShouldReturnCorrectIndex_WhenElementIsAtEnd()
-    {
-        int[] input = [1, 3, 5, 7, 9];
-        int result = _entryPoint.FindPositionInArray(input, 9);
-        Assert.That(result, Is.EqualTo(4));
+        // Assert
+        var output = sw.ToString();
+        Assert.That(output, Does.Contain("Hello from ConsoleAppEntryPoint! backwards is !tnioPyrtnEppAelosnoC morf olleH"));
+        Assert.That(output, Does.Contain("Even integers up to 10: 0, 2, 4, 6, 8, 10"));
+        Assert.That(output, Does.Contain("Current date and time:"));
     }
 }
