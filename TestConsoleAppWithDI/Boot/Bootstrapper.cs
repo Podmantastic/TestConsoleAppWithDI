@@ -4,10 +4,10 @@ namespace TestConsoleAppWithDI.Boot;
 
 internal class Bootstrapper
 {
-  public static IConsoleAppEntryPoint ResolveGenerator()
-    {
-        var kernel = new StandardKernel(new NinjectSettings(), new Module());
+  public static IScannedDocumentInformationParser ResolveGenerator()
+  {
+    var kernel = new StandardKernel(new NinjectSettings(), new Module());
 
-        return kernel.Get<IConsoleAppEntryPoint>();
-    }
+    return kernel.Get<IScannedDocumentInformationParser>();
+  }
 }
