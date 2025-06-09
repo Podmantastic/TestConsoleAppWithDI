@@ -7,6 +7,9 @@ public class Module : Ninject.Modules.NinjectModule
     {
         // Entry point
         Bind<IScannedDocumentInformationParser>().To<ScannedDocumentInformationParser>().InSingletonScope();
+        
+        Bind<IIdDocumentLoader>().To<IdDocumentLoader>().InSingletonScope();
+
     }
 }
 

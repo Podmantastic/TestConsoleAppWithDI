@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using TestConsoleAppWithDI;
+using TestConsoleAppWithDI.Models;
 
 namespace TestConsoleAppWithDITest;
 
@@ -12,16 +13,15 @@ public class ScannedDocumentInformationParserTest
     public void Setup()
     {
         // Arrange
-        _entryPoint = new ScannedDocumentInformationParser();
+        var recordsModel = new IdDocumentRecordsModel(); // You may need to set properties as required
+        _entryPoint = new ScannedDocumentInformationParser(recordsModel);
     }
 
     [Test]
     public void Do_ValidCsvData_PrintsFields()
-    {        // Act
-        _entryPoint.Parse("Field1, Field2, Field3");
+    {   // Act
+        _entryPoint.Parse();
+        
         // Assert
-        // Since the method prints to console, we can't assert the output directly.
-        // In a real test, you might want to capture console output or refactor the method to return values instead.
-        Assert.Pass("Method executed without exceptions.");
     }
 }

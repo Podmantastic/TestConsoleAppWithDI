@@ -1,25 +1,26 @@
+using TestConsoleAppWithDI.DTO;
+using TestConsoleAppWithDI.Models;
+
 namespace TestConsoleAppWithDI;
 
-public partial class ScannedDocumentInformationParser : IScannedDocumentInformationParser
+public class ScannedDocumentInformationParser : IScannedDocumentInformationParser
 {
-    public void Parse(string idDocumentCsv)
+    private readonly IdDocumentRecordsModel _recordsModel;
+
+    public ScannedDocumentInformationParser(IdDocumentRecordsModel recordsModel)
     {
-        // Simulate parsing the CSV data
-        if (string.IsNullOrWhiteSpace(idDocumentCsv))
-        {
-            throw new ArgumentException("CSV data cannot be null or empty", nameof(idDocumentCsv));
-        }
+        _recordsModel = recordsModel;
+    }
 
-        // Here you would typically parse the CSV and extract information
-        // For demonstration, we will just print the CSV data
-        Console.WriteLine($"ScannedDocumentInformationParser: {idDocumentCsv}");
-
-        // parse the variable length CSV data
-        var fields = idDocumentCsv.Split(',');
-        foreach (var field in fields)
+    public string Parse()
+    {
+        // TODO: just returning what was read, but this should be replaced with actual parsing logic
+        if (_recordsModel.Records.Count == 0)
         {
-            Console.WriteLine($"Field: {field.Trim()}");
+            return "No records found.";
         }
+        return string.Join(Environment.NewLine, _recordsModel.Records.Select(r =>
+            $"{r.Id}, {r.Type}, {r.Country}, {r.LastName}, {r.FirstName}, {r.Number}, {r.Nationality}, {r.IssueDate}, {r.ExpiryDate}"));
     }
 }
 

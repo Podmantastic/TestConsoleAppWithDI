@@ -1,6 +1,8 @@
+using TestConsoleAppWithDI.DTO;
+
 namespace TestConsoleAppWithDI;
 
 public interface IScannedDocumentInformationParser
 {
-    void Parse(string idDocumentCsv);
+    string Parse();
 }
