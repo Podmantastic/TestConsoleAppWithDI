@@ -14,6 +14,11 @@ public class ScannedDocumentInformationParser : IScannedDocumentInformationParse
 
     public string Parse()
     {
+
+        // TODO: this methos should just read the imput and call the parsing logic
+        // we to inject the model and a new class to handle the parsing logic
+
+
         // TODO: just returning what was read, but this should be replaced with actual parsing logic
         if (_recordsModel.Records.Count == 0)
         {
