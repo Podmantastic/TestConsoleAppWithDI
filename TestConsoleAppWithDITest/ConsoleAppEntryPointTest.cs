@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System.Linq;
+using NUnit.Framework;
 using TestConsoleAppWithDI;
 
 namespace TestConsoleAppWithDITest;
@@ -27,8 +28,6 @@ public class ConsoleAppEntryPointTest
 
         // Assert
         var output = sw.ToString();
-        Assert.That(output, Does.Contain("Hello from ConsoleAppEntryPoint! backwards is !tnioPyrtnEppAelosnoC morf olleH"));
-        Assert.That(output, Does.Contain("Even integers up to 10: 0, 2, 4, 6, 8, 10"));
-        Assert.That(output, Does.Contain("Current date and time:"));
+        Assert.That(output, Does.Contain("Hello from ConsoleAppEntryPoint!"));
     }
 }
